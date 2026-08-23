@@ -26,6 +26,7 @@ body {
 .nav-links a:hover::after, .nav-links a.active::after { content: ""; position: absolute; right: 0; bottom: 15px; left: 0; height: 2px; background: var(--red); }
 .nav-links a:first-child { color: inherit; }
 .nav-links a.active { color: var(--red); }
+.nav-links .language-switch { color: var(--red); font-weight: 700; }
 
 .studio-hero {
   min-height: 620px;
@@ -265,6 +266,14 @@ footer a { color: #f2b19b; }
 .about-writing-item:hover { background: rgba(56, 87, 102, .06); }
 .about-writing-item:hover h3 { color: var(--red); }
 
+.english-page { font-family: Georgia, "Times New Roman", serif; }
+.english-page .about-section-label h2 { line-height: 1.08; letter-spacing: -.035em; }
+.english-page .about-contact .placeholder-copy { max-width: 760px; white-space: normal; }
+.english-page .trilogy-hero h1 { font-size: clamp(60px, 7.2vw, 110px); letter-spacing: -.065em; }
+.work-original-title { margin: 7px 0 0; color: #66717a; font: 11px/1.5 Arial, sans-serif; }
+.about-writing-note { padding: 34px 8px; border-bottom: 1px solid var(--line); }
+.about-writing-note p { max-width: 720px; margin: 0; color: #4d5961; font-size: 18px; line-height: 1.8; }
+
 @media (max-width: 720px) {
   .about-showcase {
     display: block;
@@ -292,6 +301,16 @@ footer a { color: #f2b19b; }
 
   .about-writing-item h3 { font-size: 17px; }
   .about-writing-item > span { font-size: 16px; }
+  .nav-links { gap: 16px; }
+  .english-page .trilogy-hero h1 { font-size: clamp(48px, 14vw, 66px); }
+  .english-page .about-section-label h2 { font-size: 27px; }
+  .about-writing-note { padding: 26px 0; }
+  .about-writing-note p { font-size: 16px; }
+}
+
+@media (max-width: 430px) {
+  .brand-subtitle { display: none; }
+  .nav-links { gap: 13px; }
 }
 
 main[class] {

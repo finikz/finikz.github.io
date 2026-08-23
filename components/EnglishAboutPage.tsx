@@ -1,0 +1,111 @@
+import Image from "next/image";
+import Link from "next/link";
+import SiteFooter from "@/components/SiteFooter";
+import SiteNav from "@/components/SiteNav";
+import { englishWorks } from "@/lib/works";
+
+const workstreams = [
+  {
+    title: "Enterprise AI & Marketing Strategy",
+    points: [
+      "Co-founder of Pallas AI, advising businesses on practical AI adoption and marketing strategy.",
+      "Co-founded a content marketing company whose clients included Tencent Group Communications and the China International Fair for Investment & Trade.",
+      "Took a cross-border e-commerce product into Amazon’s top ten in its category.",
+      "Managed accounts with more than one million followers and helped a new-media network gain 300,000 followers in three months.",
+    ],
+  },
+  {
+    title: "Cross-Cultural Content",
+    points: [
+      "Translated exhibitions and catalogues for the West Bund Museum × Centre Pompidou project, including Kandinsky, The Voice of Things and Paris Architecture.",
+      "Worked for several years at a French trading company, handling business communications and institutional writing across Chinese, English and French.",
+      "Translated more than a dozen books and guided content development for brands, including designer-toy and personal brands.",
+      "Former lead writer at Qiyu Film, where several articles exceeded 100,000 views; also contributed a column to Fengshang Weekly.",
+    ],
+  },
+  {
+    title: "Organizations & Communities",
+    points: [
+      "Deputy Secretary-General of the Guangzhou Alumni Association of Sun Yat-sen University, overseeing communications.",
+      "Winner of Sun Yat-sen University’s inaugural English Singing Competition and a top-ten finalist in the 20th Venus Campus Singing Competition.",
+      "Co-founder of Jiuwei Craft Beer and the Jiuwei Art Alliance.",
+      "Founded Jiǔwō live house and presented performances by bands including Wutiaoren and Toy Captain.",
+    ],
+  },
+];
+
+const trilogyWorks = englishWorks.filter((work) => work.englishGroup === "The Dionysian Trilogy");
+
+type EnglishAboutPageProps = {
+  languageHref: string;
+};
+
+export default function EnglishAboutPage({ languageHref }: EnglishAboutPageProps) {
+  return (
+    <main className="about-page english-page" lang="en">
+      <SiteNav active="about" locale="en" languageHref={languageHref} />
+
+      <header className="page-hero about-hero">
+        <div className="about-hero-copy">
+          <h1><em>Finikz</em></h1>
+          <p><strong>AI &amp; Marketing Strategy Consultant | Cross-Cultural Content Creator</strong><br />Zhang Fengming (Finikz) graduated in French from Sun Yat-sen University. Working across Chinese, English and French, he brings together AI, cultural insight, business strategy and editorial craft to build systems that compound over time.</p>
+        </div>
+        <aside className="hero-meta">Enterprise AI Strategy / Marketing Strategy<br />Cross-Cultural Content / Chinese-English-French Translation<br />Deputy Secretary-General, SYSU Guangzhou Alumni Association<br />Co-founder, Jiuwei Craft Beer &amp; Jiuwei Art Alliance</aside>
+      </header>
+
+      <section className="about-workstreams" aria-labelledby="en-workstreams-title">
+        <div className="about-section-label"><p className="eyebrow">WORKSTREAMS</p><h2 id="en-workstreams-title">What I Do</h2></div>
+        <div className="about-stream-list">
+          {workstreams.map((item) => (
+            <article className="about-stream" key={item.title}>
+              <div><h3>{item.title}</h3><ul>{item.points.map((point) => <li key={point}>{point}</li>)}</ul></div>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section className="about-showcase about-translations" aria-labelledby="en-translations-title">
+        <div className="about-section-label"><p className="eyebrow">MY WORKS</p><h2 id="en-translations-title">Selected Translations</h2></div>
+        <div className="about-showcase-content">
+          <div className="about-work-cards">
+            {trilogyWorks.map((work) => <article className="about-work-card" key={work.url}>
+              <a className="about-work-cover" href={work.url} target="_blank" rel="noreferrer">
+                <Image src={work.cover} alt={`${work.englishTitle} Chinese edition cover`} fill sizes="(max-width: 720px) 30vw, 220px" />
+              </a>
+              <h3><a href={work.url} target="_blank" rel="noreferrer">{work.englishTitle}</a></h3>
+              {work.originalTitle && <p className="work-original-title">{work.originalTitle}</p>}
+            </article>)}
+          </div>
+          <Link className="about-more-link" href="/en/works">View More ↗</Link>
+        </div>
+      </section>
+
+      <section className="about-showcase about-writing" aria-labelledby="en-writing-title">
+        <div className="about-section-label"><p className="eyebrow">WRITING IN CHINESE</p><h2 id="en-writing-title">Selected Writing</h2></div>
+        <div className="about-showcase-content">
+          <div className="about-writing-list"><div className="about-writing-note"><p>I write about AI adoption, culture, translation and the systems that connect them. My articles are currently published in Chinese.</p></div></div>
+          <Link className="about-more-link" href="/articles" hrefLang="zh-CN">Read in Chinese ↗</Link>
+        </div>
+      </section>
+
+      <section className="about-content" id="contact">
+        <div className="about-contact">
+          <p className="eyebrow">WORK WITH ME</p>
+          <h2>Let’s Work Together</h2>
+          <p className="placeholder-copy">Enterprise AI and marketing strategy / Global brand and cross-cultural content / Arts and culture translation / Thoughtful interdisciplinary projects</p>
+          <a href="mailto:mail@finikz.com">Email　mail@finikz.com</a>
+          <div className="social-links">
+            <a href="https://mp.weixin.qq.com/mp/qrcode?scene=10000005&amp;size=102&amp;__biz=MjM5MzU0OTgyMw==&amp;mid=2652370389&amp;idx=1&amp;sn=f8a4a7adf5aee2d4d476fe52750ef66d&amp;send_time=" target="_blank" rel="noreferrer"><i className="social-icon wechat">微</i>WeChat: 非你可思</a>
+            <a href="https://www.douban.com/people/phoenixZ/" target="_blank" rel="noreferrer"><i className="social-icon douban">豆</i>Douban</a>
+            <a href="https://instagram.com/finikz" target="_blank" rel="noreferrer"><i className="social-icon instagram">◎</i>Instagram</a>
+            <a href="https://twitter.com/finikz" target="_blank" rel="noreferrer"><i className="social-icon x">𝕏</i>X / Twitter</a>
+            <a href="http://www.weibo.com/finikz" target="_blank" rel="noreferrer"><i className="social-icon weibo">博</i>Weibo</a>
+            <a href="https://www.linkedin.com/in/finikz" target="_blank" rel="noreferrer"><i className="social-icon linkedin">in</i>LinkedIn</a>
+          </div>
+        </div>
+      </section>
+
+      <SiteFooter locale="en" />
+    </main>
+  );
+}

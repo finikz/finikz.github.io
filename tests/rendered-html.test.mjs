@@ -42,7 +42,32 @@ test("exports the deployed homepage metadata and content", async () => {
   }
   assert.ok(html.indexOf("我的译作") < html.indexOf("欢迎合作"));
   assert.ok(html.indexOf("我的写作") < html.indexOf("欢迎合作"));
+  assert.match(html, /href="\/en\/?"[^>]*>EN</);
+  assert.match(html, /hrefLang="en" href="https:\/\/finikz\.cn\/en\/"/i);
   assert.match(html, /<link rel="alternate" type="application\/rss\+xml" href="https:\/\/finikz\.cn\/rss\.xml"\/>/i);
+});
+
+test("exports the English fixed pages and language navigation", async () => {
+  const routes = ["en/index.html", "en/about/index.html", "en/projects/index.html", "en/privacy/index.html", "en/terms/index.html", "en/works/index.html", "en/works/dionysus-trilogy/index.html"];
+  for (const route of routes) await access(new URL(route, outputRoot));
+
+  const html = await page("en/index.html");
+  assert.match(html, /<title>Finikz \| AI, Culture &amp; Strategy<\/title>/i);
+  assert.match(html, /Enterprise AI &amp; Marketing Strategy/);
+  assert.match(html, /WRITING IN CHINESE/);
+  assert.match(html, /Read in Chinese/);
+  assert.match(html, /href="\/"[^>]*>中</);
+  assert.match(html, /hrefLang="zh-CN" href="https:\/\/finikz\.cn\/"/i);
+  assert.match(html, /href="\/en\/about\/?"[^>]*>About</);
+  assert.match(html, /href="\/en\/privacy\/?"[^>]*>Privacy</);
+  assert.match(html, /href="\/en\/terms\/?"[^>]*>Terms</);
+
+  const worksHtml = await page("en/works/index.html");
+  for (const title of ["Another History of Wine", "Beer in All Its Forms", "Rum: The Long Voyage", "Kandinsky: The Pioneer of Abstract Art", "The Voice of Things", "Women in Abstraction"]) assert.ok(worksHtml.includes(title));
+
+  const privacyHtml = await page("en/privacy/index.html");
+  assert.match(privacyHtml, /Google Analytics 4/);
+  assert.match(privacyHtml, /Allow analytics/);
 });
 
 test("exports the primary routes and an article page", async () => {

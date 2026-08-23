@@ -2,7 +2,14 @@ import type { Metadata } from "next";
 import SiteFooter from "@/components/SiteFooter";
 import SiteNav from "@/components/SiteNav";
 
-export const metadata: Metadata = { title: "Work｜Finikz", description: "张凤鸣的企业 AI、营销战略与跨文化内容工作。" };
+export const metadata: Metadata = {
+  title: "Work｜Finikz",
+  description: "张凤鸣的企业 AI、营销战略与跨文化内容工作。",
+  alternates: {
+    canonical: "/projects/",
+    languages: { "zh-CN": "/projects/", en: "/en/projects/" },
+  },
+};
 
 const work = [
   { no: "01", title: "企业 AI 与营销战略", text: "“智神AI”（Pallas AI）联合创办人，面向企业提供 AI 落地与营销战略顾问服务。此前联合创办的内容营销公司服务过腾讯集团公关、中国国际投洽会等客户；跨境电商操盘出过亚马逊品类前 10 爆品；运营过百万粉丝账号，曾三个月为新媒体矩阵净增 30 万粉丝。" },
@@ -13,7 +20,7 @@ const work = [
 export default function ProjectsPage() {
   return (
     <main className="projects-page">
-      <SiteNav />
+      <SiteNav languageHref="/en/projects/" />
       <header className="page-hero"><p className="eyebrow">WORK / IN PRACTICE</p><h1>让经验<br /><em>成为系统。</em></h1><p>企业 AI、营销战略与内容工作，不是彼此割裂的服务，而是从判断到执行的一套长期能力。</p></header>
       <section className="project-list">{work.map((item) => <article className="project-row" key={item.no}><span>{item.no}</span><h2>{item.title}</h2><p>{item.text}{item.link && <> <a className="work-link" href={item.link}>我的译作 ↗</a></>}</p><b>WORKSTREAM</b></article>)}</section>
       <SiteFooter />

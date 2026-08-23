@@ -9,6 +9,10 @@ import { works } from "@/lib/works";
 export const metadata: Metadata = {
   title: "Finikz｜非你可思",
   description: "张凤鸣 Finikz：企业 AI 与营销战略顾问、跨文化内容创作者。",
+  alternates: {
+    canonical: "/about/",
+    languages: { "zh-CN": "/about/", en: "/en/about/" },
+  },
 };
 
 const workstreams = [
@@ -46,10 +50,14 @@ const workstreams = [
 
 const trilogyWorks = works.filter((work) => work.group === "酒神三部曲");
 
-export default function AboutPage() {
+type AboutPageContentProps = {
+  languageHref?: string;
+};
+
+export function AboutPageContent({ languageHref = "/en/about/" }: AboutPageContentProps) {
   return (
     <main className="about-page">
-      <SiteNav active="about" />
+      <SiteNav active="about" languageHref={languageHref} />
 
       <header className="page-hero about-hero">
         <div className="about-hero-copy">
@@ -99,7 +107,7 @@ export default function AboutPage() {
         </div>
       </section>
 
-      <section className="about-content">
+      <section className="about-content" id="contact">
         <div className="about-contact">
           <p className="eyebrow">WORK WITH ME</p>
           <h2>欢迎合作</h2>
@@ -119,4 +127,8 @@ export default function AboutPage() {
       <SiteFooter />
     </main>
   );
+}
+
+export default function AboutPage() {
+  return <AboutPageContent />;
 }
