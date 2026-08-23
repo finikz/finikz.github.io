@@ -29,6 +29,7 @@ test("exports the deployed homepage metadata and content", async () => {
   assert.doesNotMatch(html, /AI, STRATEGY &amp; CULTURE/);
   assert.match(html, /WORKSTREAMS/);
   assert.match(html, /智神AI/);
+  assert.match(html, /中山大学首届英文歌大赛冠军/);
   assert.ok(html.includes("我的译作"));
   assert.ok(html.includes("我的写作"));
   assert.ok(html.includes("MY WORKS"));
