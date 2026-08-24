@@ -67,7 +67,8 @@ test("exports the English fixed pages and language navigation", async () => {
 
   const privacyHtml = await page("en/privacy/index.html");
   assert.match(privacyHtml, /Google Analytics 4/);
-  assert.match(privacyHtml, /Allow analytics/);
+  assert.doesNotMatch(privacyHtml, /Allow analytics/);
+  assert.match(privacyHtml, /loads after a page is opened/);
 });
 
 test("exports the primary routes and an article page", async () => {
@@ -77,6 +78,7 @@ test("exports the primary routes and an article page", async () => {
   const privacyHtml = await page("privacy/index.html");
   assert.match(privacyHtml, /Google Analytics 4/);
   assert.match(privacyHtml, /Google AdSense/);
+  assert.doesNotMatch(privacyHtml, /同意分析/);
 
   for (const route of ["index.html", "articles/index.html", "works/index.html"]) {
     const html = await page(route);

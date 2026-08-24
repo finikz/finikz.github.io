@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
-import CookieConsent from "@/components/CookieConsent";
+import GoogleAnalytics from "@/components/GoogleAnalytics";
+import { LanguagePreference } from "@/components/LanguagePreference";
 import "./globals.css";
 import "./editorial.css";
 import "./work-link.css";
@@ -19,5 +20,5 @@ export const metadata: Metadata = {
 };
 
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
-  return <html lang="zh-CN"><body>{children}<CookieConsent /></body></html>;
+  return <html lang="zh-CN"><body>{children}<LanguagePreference /><GoogleAnalytics /></body></html>;
 }

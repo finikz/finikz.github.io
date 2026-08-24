@@ -1,4 +1,5 @@
 import Link from "next/link";
+import { LanguageSwitch } from "@/components/LanguagePreference";
 
 type SiteNavProps = {
   active?: "about" | "works" | "notes";
@@ -21,7 +22,7 @@ export default function SiteNav({ active, home = false, locale = "zh", languageH
       <div className="nav-links">
         <Link className={active === "works" ? "active" : undefined} href={`${root}/works`}>Works</Link>
         <Link className={active === "notes" ? "active" : undefined} href="/articles" hrefLang={english ? "zh-CN" : undefined}>{english ? "Writing · 中文" : "Notes"}</Link>
-        <Link className="language-switch" href={switchHref} hrefLang={english ? "zh-CN" : "en"}>{english ? "中" : "EN"}</Link>
+        <LanguageSwitch href={switchHref} locale={english ? "zh" : "en"}>{english ? "中" : "EN"}</LanguageSwitch>
       </div>
     </nav>
   );

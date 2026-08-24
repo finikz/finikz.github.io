@@ -16,17 +16,17 @@ export default function EnglishPrivacyPage() {
     <main className="legal-page english-page" lang="en">
       <SiteNav locale="en" languageHref="/privacy/" />
       <article className="legal-content">
-        <header><p className="eyebrow">PRIVACY POLICY</p><h1>Privacy Policy</h1><p>Last updated: August 18, 2026</p></header>
+        <header><p className="eyebrow">PRIVACY POLICY</p><h1>Privacy Policy</h1><p>Last updated: August 24, 2026</p></header>
         <p>finikz.cn (the “Site”) is operated by Zhang Fengming (Finikz). This policy explains what visitor data may be processed, why it is processed and what choices you have.</p>
 
         <h2>1. Information We Process</h2>
         <p>When you browse the Site, hosting, security and analytics services may process technical information such as browser and device type, access time, referring page, pages visited, interaction events, IP address and an approximate location inferred from it. If you contact us by email, we receive the email address and message content you provide.</p>
 
         <h2>2. Google Analytics</h2>
-        <p>The Site uses Google Analytics 4 (measurement ID: G-WWPWFYB8TE) to understand visits and usage. The analytics script loads only after you select “Allow analytics.” Google processes the relevant data under its own policies. We use aggregated information to improve the Site and its content, not to identify you in the real world.</p>
+        <p>The Site uses Google Analytics 4 (measurement ID: G-WWPWFYB8TE) to understand visits and usage. The analytics script loads after a page is opened, and Google processes the relevant data under its own policies. We use aggregated information to improve the Site and its content, not to identify you in the real world.</p>
 
         <h2>3. Cookies and Local Storage</h2>
-        <p>The Site uses browser local storage to remember your Cookie choice. You may select “Necessary only,” or clear the Site’s data in your browser and make a new choice. Disabling non-essential Cookies does not prevent you from reading articles or using the main pages.</p>
+        <p>Google Analytics may use Cookies or similar technologies to distinguish visits and measure interactions. The Site also uses browser local storage to remember your language choice. You can restrict or clear Cookies and local site data through your browser settings.</p>
 
         <h2>4. Advertising Services</h2>
         <p>The Site is currently applying for Google AdSense. If advertising is enabled in the future, Google and its partners may use Cookies or similar technologies to display, measure and improve advertising based on visits. Where required, we will provide an appropriate consent choice before enabling such advertising technologies.</p>
